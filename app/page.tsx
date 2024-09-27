@@ -57,9 +57,11 @@ export default function Home() {
     <div className={poppins.className}>
       <header className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg dark:bg-gray-800 dark:bg-opacity-30">
         <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <title>Haresh's Dispora</title>
           <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
             Haresh Goyal 
           </div>
+          <link rel="icon" href="/images/favicon.ico" sizes="any"/>
           <div className="hidden md:flex space-x-6">
             {['About', 'Projects', 'Contact', 'Blog', 'Resume'].map((item) => (
               <Link
