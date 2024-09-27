@@ -17,11 +17,29 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Helvetica, sans-serif;
+  
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.typewriter-text {
+  border-right: 0.1em solid;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: currentColor }
 }
