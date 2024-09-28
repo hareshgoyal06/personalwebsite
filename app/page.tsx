@@ -5,6 +5,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Poppins } from '@next/font/google'
 
+interface TechTagsProps {
+  technologies: string[]
+}
+
+export function TechTags({ technologies }: TechTagsProps) {
+  return (
+    <div className="flex flex-wrap gap-2 mt-4">
+      {technologies.map((tech, index) => (
+        <span
+          key={index}
+          className="inline-block px-2 py-1 text-xs font-semibold rounded-full bg-indigo-400 opacity-90 text-gray-800"
+        >
+          {tech}
+        </span>
+      ))}
+    </div>
+  )
+}
+
 
 const poppins = Poppins({
   weight: ['400', '600', '700'], // Choose font weights (regular, semi-bold, bold)
@@ -53,47 +72,76 @@ export default function Home() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
 
   return (
-    <div className = "min-h-screen flex flex-col bg-gradient-to-br from-purple-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-900 text-gray-800 dark:text-gray-200">
+    <div className = "min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-indigo-900 text-gray-200">
     <div className={poppins.className}>
-      <header className="bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg dark:bg-gray-800 dark:bg-opacity-30">
-        <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <title>Haresh's Dispora</title>
-          <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
-            Haresh Goyal 
-          </div>
-          <link rel="icon" href="/images/favicon.ico" sizes="any"/>
-          <div className="hidden md:flex space-x-6">
-            {['About', 'Projects', 'Contact', 'Blog', 'Resume'].map((item) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-300"
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
-          <button onClick={toggleMenu} className="md:hidden focus:outline-none">
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </nav>
-        {isMenuOpen && (
-          <div className="md:hidden bg-white dark:bg-gray-800 py-2">
-            {['About', 'Projects', 'Contact'].map((item) => (
-              <Link
-                key={item}
-                href={`#${item.toLowerCase()}`}
-                className="block px-6 py-2 hover:bg-gray-100 dark:hover:bg-gray-700"
-                onClick={toggleMenu}
-              >
-                {item}
-              </Link>
-            ))}
-          </div>
-        )}
-      </header>
+    <header className="bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-lg dark:bg-gray-800 dark:bg-opacity-30">
+      <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
+        <title>Haresh's Dispora</title>
+        <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
+          Haresh Goyal 
+        </div>
+        <link rel="icon" href="/images/favicon.ico" sizes="any"/>
+        
+        <div className="hidden md:flex space-x-6">
+          {['About', 'Projects', 'Contact'].map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="hover:text-indigo-400 transition duration-300"
+            >
+              {item}
+            </Link>
+          ))}
+          <Link
+            href="/blog"
+            className="hover:text-indigo-400 transition duration-300"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/images/Haresh_Goyal_Resume_v1.pdf"
+            className="hover:text-indigo-400 transition duration-300"
+          >
+            Resume
+          </Link>
+        </div>
+        
+        <button onClick={toggleMenu} className="md:hidden focus:outline-none">
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </nav>
+      
+      {isMenuOpen && (
+        <div className="md:hidden bg-gray-800 py-2">
+          {['About', 'Projects', 'Contact'].map((item) => (
+            <Link
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="block px-6 py-2 hover:bg-gray-700"
+              onClick={toggleMenu}
+            >
+              {item}
+            </Link>
+          ))}
+          <Link
+            href="/blog"
+            className="block px-6 py-2 hover:bg-gray-700"
+            onClick={toggleMenu}
+          >
+            Blog
+          </Link>
+          <Link
+            href="/images/Haresh_Goyal_Resume_v1.pdf"
+            className="block px-6 py-2 hover:bg-gray-700"
+            onClick={toggleMenu}
+          >
+            Resume
+          </Link>
+        </div>
+      )}
+    </header>
 
       <main className="flex-grow">
         <section id="hero" className="py-20 text-center relative overflow-hidden">
@@ -121,7 +169,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="about" className="py-20 bg-white dark:bg-gray-800">
+        <section id="about" className="py-20 bg-gray-800">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
             <div className="flex flex-col md:flex-row items-center justify-between">
@@ -147,51 +195,120 @@ export default function Home() {
                 💻I'm proficient in Python, Java, C++, Web Development and Full-Stack Development. I've been working on several Machine Learning (ML) projects in the past bit, driven by social good. 
                 </p>
                 <p className="text-lg">
-              ⚡Feel free to connect! Always looking to collaborate to create bigger things!                </p>
+              ⚡Feel free to connect! Always looking to collaborate to create bigger things!  </p>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-900">
+        <section id="projects" className="py-20 bg-gray-900">
           <div className="container mx-auto px-6">
             <h2 className="text-3xl font-bold mb-8 text-center">Featured Projects</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {[
-                { title: "E-commerce Platform", desc: "A full-stack online store with real-time inventory management." },
-                { title: "Task Management App", desc: "A collaborative tool for teams to organize and track projects." },
-                { title: "Weather Dashboard", desc: "An interactive weather app with location-based forecasts." }
+                { title: "FlipDrip", 
+                  desc: "A \"Tinder-like\" application used to give catered personalizations",
+                  image: "/images/FliporDrip.png",
+                  link: "https://devpost.com/software/wearmydrip",
+                  technologies: ["Vue.Js", "Web-Dev", "TensorFlow.Js"]
+                },
+                { title: "Google x TKS Challenge", 
+                  desc: "Worked alongside Google to find a way to make their business model more effective \n", 
+                  image: "/images/googlelite.png",
+                  link: "https://www.loom.com/share/6752c5965c494f7db54481449e677104?sid=50a82a89-57b8-4c04-862b-e8d84156bece",
+                  technologies: ["Figma", "Canva", "Gemini AI"]
+                },
+                { title: "Personal Website", 
+                  desc: "Created a fully interactive, designed language to display personal progress",
+                  image: "/images/website.png",
+                  link: "",
+                  technologies: ["React", "Next.Js", "Tailwind CSS"]
+                }
               ].map((project, index) => (
-                <div key={index} className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
+                <div key={index} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                   <Image
-                    src={`/placeholder.svg?height=200&width=400`}
-                    alt={project.title}
-                    width={400}
-                    height={200}
-                    className="w-full h-48 object-cover"
+                     src ={project.image}
+                     alt={project.title}
+                     width={400}
+                     height={200}
+                     className="w-full h-48 object-cover"
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-400 mb-4">{project.desc}</p>
-                    <a href="#" className="text-indigo-600 dark:text-indigo-400 hover:underline">Explore Project</a>
+                    <p className="text-gray-400 mb-4">{project.desc}</p>
+                    <a href={project.link} className="text-indigo-400 hover:underline">Explore Project</a>
+                    <TechTags technologies={project.technologies} />
                   </div>
                 </div>
               ))}
             </div>
           </div>
+        
+        
+        
         </section>
+        <section className="w-full py-12 bg-gray-100 dark:bg-gray-800">
+            <div className="container px-4 md:px-6 mx-auto">
+              <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl text-center mb-12">My Portfolio</h2>
+              <div className="grid gap-6 lg:grid-cols-2">
+                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden flex flex-col">
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Resume</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Mid Resume (it is what it is)</p>
+                    <p className="text-l font-semibold mb-2">Last Updated: <i>September 28th, 2024</i></p>
+                  </div>
+                  <div className="p-6 mt-auto">
+                    <Link href="/images/Haresh_Goyal_Resume_v1.pdf" className="w-full">
+                      <button className="w-full py-3 px-4 bg-purple-800 hover:bg-gray-800 text-gray-200 font-semibold border border-gray-300 dark:border-gray-700 rounded shadow">
+                        <span className="mr-2">📄</span>
+                        Download Full Resume (PDF)
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+                <div className="bg-white dark:bg-gray-900 rounded-lg shadow-md overflow-hidden flex flex-col">
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">Blog</h3>
+                    <p className="text-sm text-gray-500 dark:text-gray-400 mb-4">Yap sessions (may be useful to some)</p>
+                    <p className="text-l font-semibold mb-2">Last Updated: <i>September 28th, 2024</i></p>
+                  </div>
+                  <div className="flex items-center justify-center flex-grow p-6">
+                    <Link href="/blog" className="w-full">
+                      <button className="w-full py-3 px-4 bg-purple-800 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out text-lg">
+                        Visit My Blog
+                        <span className="ml-2">→</span>
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
 
-        <section id="contact" className="py-20 bg-white dark:bg-gray-800">
-          <div className="container mx-auto px-6">
-            <h2 className="text-3xl font-bold mb-8 text-center">Get in Touch</h2>
+        <section id="contact" className="py-20 hover:indigo-400 transition duration-300 ">
+          <div className="container mx-auto px-6 ">
+            <h2 className="text-3xl font-bold mb-8 text-center text-gray-100 ">Get in Touch</h2>
           </div>
-        </section>
-      </main>
-
-      <footer className="bg-gray-800 text-white py-8">
-        <div className="container mx-auto px-6 text-center">
-          <p>&copy; {currentTime.getFullYear()} Haresh Goyal. All rights reserved.</p>
-          <div className="mt-4 flex justify-center space-x-4">
+          <div className="container mx-auto px-4">
+            <div className="max-w-md mx-auto text-transparent bg-indigo-900 rounded-lg shadow-lg overflow-hidden">
+              <div className="p-6 flex items-center justify-center space-x-4">
+                <span className="text-2xl text-indigo-400" aria-hidden="true">
+                  ✉️
+                </span>
+                <a
+                  href={`mailto:${"haresh.goyal@uwaterloo.ca"}`}
+                  className="text-lg font-medium text-white hover:text-indigo-900 transition duration-300"
+                >
+                  {"haresh.goyal@uwaterloo.ca"}
+                </a>
+              </div>
+            </div>
+            <p className="mt-8 text-center gap-2 bottom-3 text-gray-400">
+              Feel free to reach out for collaborations or just a friendly chat!
+            </p>
+          </div>
+          <div className="container mx-auto px-6 text-center">
+          <div className="mt-4 gap-2 flex justify-center space-x-4">
             {[
               { name: 'Instragram', 
                 link: 'https://www.instagram.com/hxreshgoyal/', 
@@ -217,6 +334,13 @@ export default function Home() {
               </a>
             ))}
           </div>
+        </div>
+    </section>
+      </main>
+
+      <footer className="bg-gray-900 text-white py-8">
+        <div className="container mx-auto px-6 text-center">
+          <p>&copy; {currentTime.getFullYear()} Haresh Goyal. All rights reserved.</p>
         </div>
       </footer>
       </div>  
