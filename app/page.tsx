@@ -5,16 +5,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Poppins } from '@next/font/google'
 
-interface TechTagsProps {
+export interface TechTagsProps {
   technologies: string[]
 }
 
 export function TechTags({ technologies }: TechTagsProps) {
   return (
     <div className="flex flex-wrap gap-2 mt-4">
-      {technologies.map((tech, index) => (
+      {technologies.map((tech) => (
         <span
-          key={index}
+          key={tech}
           className="inline-block px-2 py-1 text-xs font-semibold rounded-full bg-indigo-400 opacity-90 text-gray-800"
         >
           {tech}
@@ -74,7 +74,7 @@ export default function Home() {
   return (
     <div className = "min-h-screen flex flex-col bg-gradient-to-br from-gray-900 to-indigo-900 text-gray-200">
     <div className={poppins.className}>
-    <header className="bg-gray-800 bg-opacity-30 backdrop-filter backdrop-blur-lg dark:bg-gray-800 dark:bg-opacity-30">
+    <header className="bg-gray-900 backdrop-filter backdrop-blur-lg">
       <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
         <title>Haresh's Dispora</title>
         <div className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-600">
