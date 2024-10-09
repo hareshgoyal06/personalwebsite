@@ -18,33 +18,31 @@ const poppins = Poppins({
     const blogPosts = [
       {
         id: 1,
-        title: "UW CE 1A",
+        title: "UW CE 1A 🧑‍💻",
         excerpt: "Lots of Ups and Downs.",
         date: "2024-10-07",
+        link: "/uw-ce-1a",
       },
       {
         id: 2,
         title: "University Applications",
         excerpt: "My run-through of university applications + my waterloo AIF.",
         date: "2024-10-07",
+        link: "/university-apps",
       },
       {
         id: 3,
-        title: "Why you should join clubs in high school",
+        title: "Why you should join clubs in high school 🌟",
         excerpt: "Overview of my highschool clubs experience.",
         date: "2024-10-07",
+        link: "/join-clubs",
       },
       {
         id: 4,
-        title: "TKS Alumni",
-        excerpt: "Everything I got to do at TKS + what I learned",
-        date: "2024-05-12",
-      },
-      {
-        id: 5,
         title: "MY SHAD Experience",
         excerpt: "Everything about my SHAD experience. In short, it really was a month of change.",
-        date: "2023-06-15",
+        date: "2024-10-07",
+        link: "/shad",
       },
     ]
 
@@ -172,7 +170,7 @@ return (
         {blogPosts.map((post) => (
           <article key={post.id} className="mb-8 pb-8 border-b border-gray-200 last:border-b-0">
             <h2 className="text-2xl font-semibold mb-2">
-              <Link href={`/blog/${post.id}`} className="text-indigo-400 hover:underline">
+              <Link href={post.link} className="text-indigo-400 hover:underline">
                 {post.title}
               </Link>
             </h2>
@@ -183,8 +181,7 @@ return (
           </article>
         ))}
       </main>
-      <footer className="mt-8 pt-8 border-t border-gray-200 text-center text-sm text-gray-500">
-      </footer>
+    
     </div>
 
 
