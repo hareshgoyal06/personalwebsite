@@ -176,12 +176,7 @@ return (
         <br></br>
         <br></br>
         </p>
-        <Image className="max-w-5xl mx-auto my-8 rounded-lg shadow-md"
-          src="/images/MadeIt.png"
-          width={600}
-          height={400}
-          alt=""
-        />
+
       
       </div>
     </article>

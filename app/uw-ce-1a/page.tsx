@@ -187,12 +187,6 @@ return (
         Stayed tuned (let’s hope I pass).
         </p>
         
-        <Image className="max-w-5xl mx-auto my-8 rounded-lg shadow-md"
-          src="/images/schedule.png"
-          width={600}
-          height={400}
-          alt=""
-        />
       </div>
     </article>
     </div>
