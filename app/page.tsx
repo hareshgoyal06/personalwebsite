@@ -223,7 +223,25 @@ export default function Home() {
                   image: "/images/website.png",
                   link: "",
                   technologies: ["React", "Next.Js", "Tailwind CSS"]
-                }
+                },
+                { title: "Khanscapes", 
+                  desc: "Built a website for Khanscapes to help them expand their online presence",
+                  image: "/images/khanscapes.png",
+                  link: "https://khanscapes-hareshgoyal06-gmailcoms-projects.vercel.app/",
+                  technologies: ["React", "Next.Js", "Tailwind CSS", "Express.JS", "TypeScript"]
+                },
+                { title: "Mesh.io", 
+                  desc: "Developed a real-time networking platform, connecting idividuals based on shared skill sets.",
+                  image: "/images/mesh.png",
+                  link: "https://github.com/jaedonvisva/mesh",
+                  technologies: ["React", "Next.Js", "Tailwind CSS", "Express.JS", "TypeScript"]
+                },
+                { title: "Uptick", 
+                  desc: "Developed a comprehensive stock market analysis platform providing real-time data",
+                  image: "/images/uptick.png",
+                  link: "https://github.com/hareshgoyal06/tickup",
+                  technologies: ["React", "Next.Js", "Tailwind CSS", "Express.JS", "TypeScript"]
+                },
               ].map((project, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
                   <Image
