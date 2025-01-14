@@ -234,13 +234,13 @@ export default function Home() {
                   desc: "Developed a real-time networking platform, connecting idividuals based on shared skill sets.",
                   image: "/images/mesh.png",
                   link: "https://github.com/jaedonvisva/mesh",
-                  technologies: ["React", "Next.Js", "Tailwind CSS", "Express.JS", "TypeScript"]
+                  technologies: ["React", "Next.Js", "Flask", "MongoDB", "TypeScript"]
                 },
                 { title: "Uptick", 
                   desc: "Developed a comprehensive stock market analysis platform providing real-time data",
                   image: "/images/uptick.png",
                   link: "https://github.com/hareshgoyal06/tickup",
-                  technologies: ["React", "Next.Js", "Tailwind CSS", "Express.JS", "TypeScript"]
+                  technologies: ["Vue", "FastAPI", "Express.JS", "PostgreSQL", "Node.JS"]
                 },
               ].map((project, index) => (
                 <div key={index} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition duration-300">
