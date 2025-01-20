@@ -99,7 +99,7 @@ export default function Home() {
             Blog
           </Link>
           <Link
-            href="/images/Haresh_Goyal_Resume_v1.pdf"
+            href="/images/Haresh_Goyal_Resume_v6_0.pdf"
             className="hover:text-indigo-400 transition duration-300"
           >
             Resume
@@ -133,7 +133,7 @@ export default function Home() {
             Blog
           </Link>
           <Link
-            href="/images/Haresh_Goyal_Resume_v1.pdf"
+            href="/images/Haresh_Goyal_Resume_v6_0.pdf"
             className="block px-6 py-2 hover:bg-gray-700"
             onClick={toggleMenu}
           >
@@ -276,7 +276,7 @@ export default function Home() {
                     <p className="text-l font-semibold mb-2">Last Updated: <i>September 28th, 2024</i></p>
                   </div>
                   <div className="p-6 mt-auto">
-                    <Link href="/images/Haresh_Goyal_Resume_v1.pdf" className="w-full">
+                    <Link href="/images/Haresh_Goyal_Resume_v6_0.pdf" className="w-full">
                       <button className="w-full py-3 px-4 bg-purple-800 hover:bg-gray-800 text-gray-200 font-semibold border border-gray-300 dark:border-gray-700 rounded shadow">
                         <span className="mr-2">📄</span>
                         Download Full Resume (PDF)
